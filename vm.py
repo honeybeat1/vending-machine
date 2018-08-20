@@ -20,19 +20,18 @@ class VendingMachine:
 				return "잔액이 부족합니다"
 			else :
 				self._change = self._change - price
-				return beverage + "가 나왔습니다"
-
-# 		elif cmd == "커피":
-# 			if self._change >= 150: 
-# 				return """
-# ---@-----
-# |  coffee |
-# |         |
-# ---------  """
+				return beverage + "가 나왔습니다" + """
+---@-----
+|  coffee |
+|         |
+---------  """
 # 			else:
 # 				return "잔액이 부족합니다."
 		elif cmd == "동전" : 
 			coin = params[0]
+			coin_list = ['10','50','100','500'] #split 해서 들어갔기 때문에 str 형태임 
+			if coin not in coin_list:
+				return "모르는 동전입니다"
 			self._change += int(coin) #100원을 int(coin)으로 대체
 			return coin + "원을 넣었습니다"
 		else:
